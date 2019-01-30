@@ -39,5 +39,13 @@ namespace unitTestCalculator
             var uut = new Calculator.Calculator();
             Assert.That(uut.Power(2, 2), Is.EqualTo(4));
         }
+
+        [TestCase(10,2,5)]
+        [TestCase(10,0,false)]
+        public void Divide(double a, double b, double c)
+        {
+            var uut = new Calculator.Calculator();
+            Assert.AreEqual(c, uut.Divide(a,b));
+        }
     }
 }

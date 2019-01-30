@@ -9,8 +9,6 @@ namespace Calculator
     public class Calculator
     {
 
-        //fix by Danny
-
         public double Add(double a, double b)
         {
             return a + b;
@@ -30,6 +28,14 @@ namespace Calculator
         {
             return Math.Pow(a, b);
         }
+
+        public double Divide(double a, double b)
+        {
+            if (b == 0)
+                return 0;
+            return a / b;
+        }
+
     }
 }
 

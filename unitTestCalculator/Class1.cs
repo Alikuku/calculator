@@ -12,10 +12,10 @@ namespace unitTestCalculator
     public class unitTestCalculator
     {
         [Test] 
-        public void add2plus2()
+        public void add2plus4()
         {
             var uut = new calculator.Calculator();
-            Assert.That(uut.Add(2, 2), Is.EqualTo(4));
+            Assert.That(uut.Add(2, 4), Is.EqualTo(6));
 
         }
 

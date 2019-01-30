@@ -11,41 +11,41 @@ namespace unitTestCalculator
     [TestFixture]
     public class unitTestCalculator
     {
-        [Test] 
-        public void add2plus4()
+
+        [Test]
+        public void add4plus4_return8()
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Add(2, 4), Is.EqualTo(6));
-
+            Assert.That(uut.Add(4, 4), Is.EqualTo(8).Within(0.01));
         }
 
         [Test]
-        public void sub2minus2()
+        public void Subtract4minus2_return2()
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Subtract(2, 2), Is.EqualTo(0));
+            Assert.That(uut.Subtract(4, 2), Is.EqualTo(2).Within(0.01));
         }
 
         [Test]
-        public void gang2gang2()
+        public void Multiply3gange3_return9()
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Multiply(2, 2), Is.EqualTo(4));
+            Assert.That(uut.Multiply(3, 3), Is.EqualTo(9).Within(0.01));
         }
 
         [Test]
-        public void pow2pow2()
+        public void Power2oploeftet4_return16()
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Power(2, 2), Is.EqualTo(4));
+            Assert.That(uut.Power(2, 4), Is.EqualTo(16).Within(0.01));
         }
 
-        [TestCase(10,2,5)]
-        [TestCase(10,0,false)]
-        public void Divide(double a, double b, double c)
+        [TestCase(10, 2, 5)]
+        [TestCase(10, 0, 0)]
+        public void Divide10divideretmed2og0_return5og0(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
-            Assert.AreEqual(c, uut.Divide(a,b));
+            Assert.AreEqual(c, uut.Divide(a, b));
         }
     }
 }

@@ -8,9 +8,10 @@ namespace calculator
 {
 
    
-        
+        //hej med dig, tester til github merge
             public class Calculator
         {
+        
             public double Add(double a, double b)
             {
                 return a + b;

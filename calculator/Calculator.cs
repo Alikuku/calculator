@@ -8,6 +8,7 @@ namespace Calculator
 {
     public class Calculator
     {
+
         public double Add(double a, double b)
         {
             return a + b;
@@ -28,20 +29,13 @@ namespace Calculator
             return Math.Pow(a, b);
         }
 
-        private double _lastResult = 0.0;
-
-        public double Accumulator
+        public double Divide(double a, double b)
         {
-            get
-            {
-                return _lastResult;
-            }
-
-            private set
-            {
-
-            }
+            if (b == 0)
+                return 0;
+            return a / b;
         }
+
     }
 }
 

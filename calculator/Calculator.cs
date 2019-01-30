@@ -8,32 +8,52 @@ namespace Calculator
 {
     public class Calculator
     {
+        //Remember last result!
+        public double _lastResult;
 
         public double Add(double a, double b)
         {
-            return a + b;
+            //update lastResult
+            _lastResult = a + b;
+            return _lastResult;
+            
         }
 
         public double Subtract(double a, double b)
         {
-            return a - b;
+            //update lastResult
+            _lastResult = a - b;
+            return _lastResult;
         }
 
         public double Multiply(double a, double b)
         {
-            return a * b;
+            //update lastResult
+            _lastResult = a * b;
+            return _lastResult;
         }
 
         public double Power(double a, double b)
         {
-            return Math.Pow(a, b);
+            //update lastResult
+            _lastResult = Math.Pow(a,b);
+            return _lastResult;
         }
 
         public double Divide(double a, double b)
         {
             if (b == 0)
                 return 0;
-            return a / b;
+            //update lastResult
+            _lastResult = a / b;
+            return _lastResult;
+        }
+
+        public double Accumulator
+        {
+            get { return _lastResult; }
+
+            set { _lastResult = value; }
         }
 
     }

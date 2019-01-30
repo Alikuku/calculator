@@ -47,5 +47,19 @@ namespace unitTestCalculator
             var uut = new Calculator.Calculator();
             Assert.AreEqual(c, uut.Divide(a, b));
         }
+
+        [TestCase(5, 5)] //Add 5 and 5
+        //[TestCase(10, 3)] //Subtract 10 with 3
+        public void Accumulator(double a, double b)
+        {
+            var uut = new Calculator.Calculator();
+
+
+            //currently only testing with additions.
+            uut.Add(a, b);
+
+            Assert.AreEqual(uut._lastResult, 10);
+        }
+        
     }
 }

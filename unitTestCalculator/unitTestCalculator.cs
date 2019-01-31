@@ -57,18 +57,21 @@ namespace unitTestCalculator
             //initialize array size of 5 named: resultArray
             double[] resultArray = new double[5];
 
-            //currently only testing with additions.
-            resultArray[0] = uut.Add(a, b);
-            resultArray[1] = uut.Subtract(a, b);
-            resultArray[2] = uut.Multiply(a, b);
-            resultArray[3] = uut.Power(a, b);
-            resultArray[4] = uut.Divide(a, b);
-
             //initialize elements of array resultArray
-            foreach (var i in resultArray)
-            {
-                Assert.That(i, Is.Not.SameAs(uut._lastResult));
-            }
+            resultArray[0] = uut.Add(a, b);
+            Assert.AreEqual(resultArray[0],uut._lastResult);
+
+            resultArray[1] = uut.Subtract(a, b);
+            Assert.AreEqual(resultArray[1], uut._lastResult);
+
+            resultArray[2] = uut.Multiply(a, b);
+            Assert.AreEqual(resultArray[2], uut._lastResult);
+
+            resultArray[3] = uut.Power(a, b);
+            Assert.AreEqual(resultArray[3], uut._lastResult);
+
+            resultArray[4] = uut.Divide(a, b);
+            Assert.AreEqual(resultArray[4], uut._lastResult);
         }   
     }
 }

@@ -16,7 +16,6 @@ namespace Calculator
             //update lastResult
             _lastResult = a + b;
             return _lastResult;
-            
         }
 
         public double Subtract(double a, double b)
@@ -51,6 +50,7 @@ namespace Calculator
 
         public double Accumulator
         {
+            //setter & getter
             get { return _lastResult; }
 
             set { _lastResult = value; }

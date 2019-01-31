@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -49,17 +50,25 @@ namespace unitTestCalculator
         }
 
         [TestCase(5, 5)] //Add 5 and 5
-        //[TestCase(10, 3)] //Subtract 10 with 3
         public void Accumulator(double a, double b)
         {
             var uut = new Calculator.Calculator();
 
+            //initialize array size of 5 named: resultArray
+            double[] resultArray = new double[5];
 
             //currently only testing with additions.
-            uut.Add(a, b);
+            resultArray[0] = uut.Add(a, b);
+            resultArray[1] = uut.Subtract(a, b);
+            resultArray[2] = uut.Multiply(a, b);
+            resultArray[3] = uut.Power(a, b);
+            resultArray[4] = uut.Divide(a, b);
 
-            Assert.AreEqual(uut._lastResult, 10);
-        }
-        
+            //initialize elements of array resultArray
+            foreach (var i in resultArray)
+            {
+                Assert.That(i, Is.Not.SameAs(uut._lastResult));
+            }
+        }   
     }
 }

@@ -8,8 +8,6 @@ namespace Calculator
 {
     public class Calculator
     {
-        //TESTING JENKINS !! 05/02-2019
-
         //Remember last result!
         public double _lastResult;
 
@@ -20,10 +18,22 @@ namespace Calculator
             return _lastResult;
         }
 
+        public double Add(double a)
+        {
+            _lastResult += a;
+            return _lastResult;
+        }
+
         public double Subtract(double a, double b)
         {
             //update lastResult
             _lastResult = a - b;
+            return _lastResult;
+        }
+
+        public double Subtract(double a)
+        {
+            _lastResult -= a;
             return _lastResult;
         }
 
@@ -34,10 +44,22 @@ namespace Calculator
             return _lastResult;
         }
 
+        public double Multiply(double a)
+        {
+            _lastResult = a * _lastResult;
+            return _lastResult;
+        }
+
         public double Power(double a, double b)
         {
             //update lastResult
             _lastResult = Math.Pow(a,b);
+            return _lastResult;
+        }
+
+        public double Power(double a)
+        {
+            _lastResult = Math.Pow(_lastResult, a);
             return _lastResult;
         }
 
@@ -50,6 +72,14 @@ namespace Calculator
             return _lastResult;
         }
 
+        public double Divide(double a)
+        {
+            if (a == 0)
+                return 0;
+            _lastResult = _lastResult / a;
+            return _lastResult;
+        }
+
         public double Accumulator
         {
             //setter & getter
@@ -57,7 +87,6 @@ namespace Calculator
 
             set { _lastResult = value; }
         }
-
     }
 }
 

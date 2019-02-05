@@ -8,6 +8,8 @@ namespace Calculator
 {
     public class Calculator
     {
+        //TESTING JENKINS !! 05/02-2019
+
         //Remember last result!
         public double _lastResult;
 

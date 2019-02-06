@@ -18,6 +18,7 @@ namespace Calculator
             return _lastResult;
         }
 
+        //Overloaded Add- function to accomplish usage of accumulator
         public double Add(double a)
         {
             _lastResult += a;
@@ -31,6 +32,7 @@ namespace Calculator
             return _lastResult;
         }
 
+        //Overloaded Subtract- function to accomplish usage of accumulator
         public double Subtract(double a)
         {
             _lastResult -= a;
@@ -44,6 +46,7 @@ namespace Calculator
             return _lastResult;
         }
 
+        //Overloaded Multiply- function to accomplish usage of accumulator
         public double Multiply(double a)
         {
             _lastResult = a * _lastResult;
@@ -57,6 +60,7 @@ namespace Calculator
             return _lastResult;
         }
 
+        //Overloaded Power- function to accomplish usage of accumulator
         public double Power(double a)
         {
             _lastResult = Math.Pow(_lastResult, a);
@@ -72,6 +76,7 @@ namespace Calculator
             return _lastResult;
         }
 
+        //Overloaded Divide- function to accomplish usage of accumulator
         public double Divide(double a)
         {
             if (a == 0)

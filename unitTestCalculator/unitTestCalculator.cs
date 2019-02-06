@@ -13,28 +13,49 @@ namespace unitTestCalculator
     public class unitTestCalculator
     {
 
-        [Test]
-        public void add4plus4_return8()
+        [TestCase(4, 4, 8)]
+        [TestCase(2, 9, 11)]
+        [TestCase(1, 3, 4)]
+        public void Add3TestCases(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Add(4, 4), Is.EqualTo(8).Within(0.01));
+            Assert.AreEqual(c, uut.Add(a, b));
         }
 
-        [Test]
-        public void Subtract4minus2_return2()
+        [TestCase(4, 8)]
+        [TestCase(2, 10)]
+        [TestCase(4, 14)]
+        public void Add3TestCasesWithLastresult(double a, double b)
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Subtract(4, 2), Is.EqualTo(2).Within(0.01));
+
+            //Set last result!
+            uut.Add(2, 2);
+
+            Assert.AreEqual(b, uut.Add(a, b));
         }
 
-        [Test]
+        [TestCase(4, 4, 0)]
+        [TestCase(9, 2, 7)]
+        [TestCase(5, 3, 2)]
+        public void Subtract3TestCases(double a, double b, double c)
+        {
+            var uut = new Calculator.Calculator();
+            Assert.AreEqual(c, uut.Subtract(a, b));
+        }
+
+        [TestCase(4, 4, 8)]
+        [TestCase(2, 9, 11)]
+        [TestCase(1, 3, 4)]
         public void Multiply3gange3_return9()
         {
             var uut = new Calculator.Calculator();
             Assert.That(uut.Multiply(3, 3), Is.EqualTo(9).Within(0.01));
         }
 
-        [Test]
+        [TestCase(4, 4, 8)]
+        [TestCase(2, 9, 11)]
+        [TestCase(1, 3, 4)]
         public void Power2oploeftet4_return16()
         {
             var uut = new Calculator.Calculator();

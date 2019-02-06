@@ -14,60 +14,114 @@ namespace unitTestCalculator
     {
 
         [TestCase(4, 4, 8)]
-        [TestCase(2, 9, 11)]
-        [TestCase(1, 3, 4)]
+        [TestCase(-2, 9, 7)]
+        [TestCase(1.5, 3.8, 5.3)]
         public void Add3TestCases(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
             Assert.AreEqual(c, uut.Add(a, b));
         }
 
-        [TestCase(4, 8)]
-        [TestCase(2, 10)]
-        [TestCase(4, 14)]
-        public void Add3TestCasesWithLastresult(double a, double b)
+        [TestCase(2, 6, 4, 12)]
+        [TestCase(-5, 15, 1, 11)]
+        [TestCase(8.9, 2.2, 10.5, 21.6)]
+        public void Add3TestCasesWithLastresult(double a, double b, double c, double d)
         {
             var uut = new Calculator.Calculator();
 
             //Set last result!
-            uut.Add(2, 2);
+            uut.Add(a, b);
 
-            Assert.AreEqual(b, uut.Add(a, b));
+            Assert.AreEqual(d, uut.Add(c));
         }
 
         [TestCase(4, 4, 0)]
-        [TestCase(9, 2, 7)]
-        [TestCase(5, 3, 2)]
+        [TestCase(-9, 2, -11)]
+        [TestCase(5.5, -5.5, 11)]
         public void Subtract3TestCases(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
             Assert.AreEqual(c, uut.Subtract(a, b));
         }
 
-        [TestCase(4, 4, 8)]
-        [TestCase(2, 9, 11)]
-        [TestCase(1, 3, 4)]
-        public void Multiply3gange3_return9()
+        [TestCase(12, 6, 4, 2)]
+        [TestCase(11, 15, -4, 0)]
+        [TestCase(3.9, 7.8, 5.2, -9.1)]
+        public void Sub3TestCasesWithLastresult(double a, double b, double c, double d)
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Multiply(3, 3), Is.EqualTo(9).Within(0.01));
+
+            //Set last result!
+            uut.Subtract(a, b);
+
+            Assert.AreEqual(d, uut.Subtract(c));
         }
 
-        [TestCase(4, 4, 8)]
-        [TestCase(2, 9, 11)]
-        [TestCase(1, 3, 4)]
-        public void Power2oploeftet4_return16()
+        [TestCase(4, 4, 16)]
+        [TestCase(2, -9, -18)]
+        [TestCase(1.8, 3.2, 5.76)]
+        public void Multiply3TestCases(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
-            Assert.That(uut.Power(2, 4), Is.EqualTo(16).Within(0.01));
+            Assert.That(uut.Multiply(a, b), Is.EqualTo(c).Within(0.01));
+        }
+
+        [TestCase(9, 3, 15, 405)]
+        [TestCase(-6, 5, -103, 3090)]
+        [TestCase(17.5, 2.8, 8.2, 401.8)]
+        public void Multiply3TestCasesWithLastresult(double a, double b, double c, double d)
+        {
+            var uut = new Calculator.Calculator();
+
+            //Set last result!
+            uut.Multiply(a, b);
+
+            Assert.That(uut.Multiply(c), Is.EqualTo(d).Within(0.01));
+        }
+
+        [TestCase(8, 1, 8)]
+        [TestCase(2, 0, 1)]
+        [TestCase(-16, 2, 256)]
+        [TestCase(-16, 3, -4096)]
+        public void Power2oploeftet4_return16(double a, double b, double c)
+        {
+            var uut = new Calculator.Calculator();
+            Assert.That(uut.Power(a, b), Is.EqualTo(c).Within(0.01));
+        }
+
+        [TestCase(2, 6, 3, 262144)]
+        [TestCase(-6, 2, 1, 36)]
+        [TestCase(36, 513, 0, 1)]
+        public void Power3TestCasesWithLastresult(double a, double b, double c, double d)
+        {
+            var uut = new Calculator.Calculator();
+
+            //Set last result!
+            uut.Power(a, b);
+
+            Assert.That(uut.Power(c), Is.EqualTo(d).Within(0.01));
         }
 
         [TestCase(10, 2, 5)]
+        [TestCase(4131, 81, 51)]
         [TestCase(10, 0, 0)]
         public void Divide10divideretmed2og0_return5og0(double a, double b, double c)
         {
             var uut = new Calculator.Calculator();
             Assert.AreEqual(c, uut.Divide(a, b));
+        }
+
+        [TestCase(9, 3, 2, 1.5)]
+        [TestCase(-6, 2, 3, -1)]
+        [TestCase(18.5, 2, 9.25, 1)]
+        public void Divide3TestCasesWithLastresult(double a, double b, double c, double d)
+        {
+            var uut = new Calculator.Calculator();
+
+            //Set last result!
+            uut.Divide(a, b);
+
+            Assert.That(uut.Divide(c), Is.EqualTo(d).Within(0.01));
         }
 
         [TestCase(5, 5)] //Add 5 and 5
